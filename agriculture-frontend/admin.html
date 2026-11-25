@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - AgriInfo</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eeeeee;
+        }
+
+        nav {
+            background-color: #333333;
+            padding: 18px;
+        }
+
+        nav h2 {
+            display: inline;
+            color: white;
+            margin-right: 40px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .container {
+            width: 85%;
+            margin: 40px auto;
+        }
+
+        h1 {
+            color: #333333;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: white;
+            width: 200px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px gray;
+            text-align: center;
+        }
+
+        .card h2 {
+            font-size: 30px;
+            color: #2e7d32;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 35px;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #cccccc;
+            text-align: center;
+        }
+
+        th {
+            background-color: #333333;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <h2>🌱 AgriInfo Admin</h2>
+
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="crops.html">Crops</a>
+    <a href="login.html">Logout</a>
+    <a href="admin.html">Admin</a>
+</nav>
+
+<div class="container">
+
+    <h1>⚙️ Admin Dashboard</h1>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2 id="farmerCount">0</h2>
+            <p>👨‍🌾 Registered Farmers</p>
+        </div>
+
+        <div class="card">
+            <h2 id="cropCount">0</h2>
+            <p>🌾 Total Crops</p>
+        </div>
+
+        <div class="card">
+            <h2 id="marketCount">0</h2>
+            <p>📊 Market Records</p>
+        </div>
+
+    </div>
+
+    <h2>👨‍🌾 Farmer Information</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Location</th>
+                <th>Crop</th>
+            </tr>
+        </thead>
+
+        <tbody id="farmerTable">
+            <tr>
+                <td colspan="4">Loading farmer details...</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+async function loadAdminStats() {
+    try {
+        const response = await fetch("/api/admin/stats");
+
+        if (!response.ok) {
+            throw new Error("Failed to load statistics");
+        }
+
+        const data = await response.json();
+
+        document.getElementById("farmerCount").textContent =
+            data.farmers;
+
+    } catch (error) {
+        console.error("Admin stats error:", error);
+    }
+}
+
+loadAdminStats();
+</script>
+
+</body>
+</html>
+

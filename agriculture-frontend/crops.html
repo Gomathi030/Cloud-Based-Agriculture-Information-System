@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Crops - AgriInfo</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f8e9;
+            color: #333;
+        }
+
+        /* Navigation */
+
+        nav {
+            background: #2e7d32;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Container */
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2e7d32;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #2e7d32;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        /* Crop Grid */
+
+        .crop-grid {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(250px, 1fr)
+            );
+            gap: 20px;
+        }
+
+        /* Crop Card */
+
+        .crop-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+
+            box-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.1);
+
+            transition: transform 0.2s;
+        }
+
+        .crop-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .crop-card h3 {
+            color: #2e7d32;
+            margin-top: 0;
+            font-size: 21px;
+        }
+
+        .crop-card p {
+            margin: 8px 0;
+        }
+
+        /* My Crop */
+
+        #myCrop {
+            background: white;
+            padding: 25px;
+            margin-top: 20px;
+            border-radius: 10px;
+
+            box-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.1);
+
+            min-height: 80px;
+        }
+
+        .my-crop-card {
+            border-left: 5px solid #2e7d32;
+            padding-left: 20px;
+        }
+
+        .my-crop-card h3 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+
+        .my-crop-card p {
+            margin: 10px 0;
+        }
+
+        /* Add Button */
+
+        .add-button {
+            display: inline-block;
+
+            margin-top: 20px;
+
+            background: #2e7d32;
+            color: white;
+
+            padding: 12px 20px;
+
+            border-radius: 6px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+        .add-button:hover {
+            background: #1b5e20;
+        }
+
+        /* Footer */
+
+        footer {
+            margin-top: 50px;
+
+            background: #2e7d32;
+            color: white;
+
+            text-align: center;
+
+            padding: 15px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin-left: 8px;
+                margin-right: 8px;
+            }
+
+            .container {
+                width: 95%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- Navigation -->
+
+<nav>
+
+    <div class="logo">
+        🌱 AgriInfo
+    </div>
+
+    <div>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="weather.html">
+            Weather
+        </a>
+
+        <a href="market.html">
+            Market
+        </a>
+
+        <a href="add_crop.html">
+            Add Crop
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- Main Content -->
+
+<div class="container">
+
+
+    <h1>
+        🌾 Crop Information
+    </h1>
+
+
+
+    <!-- Available Crops -->
+
+    <h2>
+        Available Crops
+    </h2>
+
+
+    <div class="crop-grid">
+
+
+        <!-- Rice -->
+
+        <div class="crop-card">
+
+            <h3>
+                🌾 Rice
+            </h3>
+
+            <p>
+                <strong>Season:</strong>
+                June - November
+            </p>
+
+            <p>
+                <strong>Water Requirement:</strong>
+                High
+            </p>
+
+            <p>
+                <strong>Soil:</strong>
+                Clay Soil
+            </p>
+
+        </div>
+
+
+
+        <!-- Maize -->
+
+        <div class="crop-card">
+
+            <h3>
+                🌽 Maize
+            </h3>
+
+            <p>
+                <strong>Season:</strong>
+                June - September
+            </p>
+
+            <p>
+                <strong>Water Requirement:</strong>
+                Medium
+            </p>
+
+            <p>
+                <strong>Soil:</strong>
+                Loamy Soil
+            </p>
+
+        </div>
+
+
+
+        <!-- Groundnut -->
+
+        <div class="crop-card">
+
+            <h3>
+                🥜 Groundnut
+            </h3>
+
+            <p>
+                <strong>Season:</strong>
+                July - October
+            </p>
+
+            <p>
+                <strong>Water Requirement:</strong>
+                Medium
+            </p>
+
+            <p>
+                <strong>Soil:</strong>
+                Sandy Loam Soil
+            </p>
+
+        </div>
+
+
+
+        <!-- Tomato -->
+
+        <div class="crop-card">
+
+            <h3>
+                🍅 Tomato
+            </h3>
+
+            <p>
+                <strong>Season:</strong>
+                June - October
+            </p>
+
+            <p>
+                <strong>Water Requirement:</strong>
+                Medium
+            </p>
+
+            <p>
+                <strong>Soil:</strong>
+                Loamy Soil
+            </p>
+
+        </div>
+
+
+
+        <!-- Chilli -->
+
+        <div class="crop-card">
+
+            <h3>
+                🌶️ Chilli
+            </h3>
+
+            <p>
+                <strong>Season:</strong>
+                June - September
+            </p>
+
+            <p>
+                <strong>Water Requirement:</strong>
+                Medium
+            </p>
+
+            <p>
+                <strong>Soil:</strong>
+                Black Soil
+            </p>
+
+        </div>
+
+
+
+        <!-- Onion -->
+
+        <div class="crop-card">
+
+            <h3>
+                🧅 Onion
+            </h3>
+
+            <p>
+                <strong>Season:</strong>
+                August - January
+            </p>
+
+            <p>
+                <strong>Water Requirement:</strong>
+                Medium
+            </p>
+
+            <p>
+                <strong>Soil:</strong>
+                Sandy Loam Soil
+            </p>
+
+        </div>
+
+
+
+        <!-- Green Gram -->
+
+        <div class="crop-card">
+
+            <h3>
+                🌱 Green Gram
+            </h3>
+
+            <p>
+                <strong>Season:</strong>
+                June - September
+            </p>
+
+            <p>
+                <strong>Water Requirement:</strong>
+                Low
+            </p>
+
+            <p>
+                <strong>Soil:</strong>
+                Loamy Soil
+            </p>
+
+        </div>
+
+
+
+        <!-- Black Gram -->
+
+        <div class="crop-card">
+
+            <h3>
+                🌱 Black Gram
+            </h3>
+
+            <p>
+                <strong>Season:</strong>
+                June - September
+            </p>
+
+            <p>
+                <strong>Water Requirement:</strong>
+                Low
+            </p>
+
+            <p>
+                <strong>Soil:</strong>
+                Clay Loam Soil
+            </p>
+
+        </div>
+
+
+
+        <!-- Wheat -->
+
+        <div class="crop-card">
+
+            <h3>
+                🌾 Wheat
+            </h3>
+
+            <p>
+                <strong>Season:</strong>
+                November - March
+            </p>
+
+            <p>
+                <strong>Water Requirement:</strong>
+                Medium
+            </p>
+
+            <p>
+                <strong>Soil:</strong>
+                Loamy Soil
+            </p>
+
+        </div>
+
+
+
+        <!-- Banana -->
+
+        <div class="crop-card">
+
+            <h3>
+                🍌 Banana
+            </h3>
+
+            <p>
+                <strong>Season:</strong>
+                Year Round
+            </p>
+
+            <p>
+                <strong>Water Requirement:</strong>
+                High
+            </p>
+
+            <p>
+                <strong>Soil:</strong>
+                Rich Loamy Soil
+            </p>
+
+        </div>
+
+
+
+        <!-- Potato -->
+
+        <div class="crop-card">
+
+            <h3>
+                🥔 Potato
+            </h3>
+
+            <p>
+                <strong>Season:</strong>
+                October - January
+            </p>
+
+            <p>
+                <strong>Water Requirement:</strong>
+                Medium
+            </p>
+
+            <p>
+                <strong>Soil:</strong>
+                Sandy Loam Soil
+            </p>
+
+        </div>
+
+
+
+        <!-- Sugarcane -->
+
+        <div class="crop-card">
+
+            <h3>
+                🍬 Sugarcane
+            </h3>
+
+            <p>
+                <strong>Season:</strong>
+                September - March
+            </p>
+
+            <p>
+                <strong>Water Requirement:</strong>
+                High
+            </p>
+
+            <p>
+                <strong>Soil:</strong>
+                Deep Loamy Soil
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- My Added Crop -->
+
+    <h2>
+        🌾 My Added Crop
+    </h2>
+
+
+    <div id="myCrop">
+
+        Loading crop information...
+
+    </div>
+
+
+
+    <!-- Add Crop Button -->
+
+    <a href="add_crop.html" class="add-button">
+
+        ➕ Add New Crop
+
+    </a>
+
+
+</div>
+
+
+
+<!-- Footer -->
+
+<footer>
+
+    © 2026 Agriculture Information System
+
+</footer>
+
+
+
+<!-- JavaScript -->
+
+<script>
+
+    // Get logged-in farmer email
+
+    const farmerEmail =
+        localStorage.getItem("farmerEmail");
+
+
+    // Check login
+
+    if (!farmerEmail) {
+
+        document.getElementById("myCrop").innerHTML =
+            "Please login first.";
+
+    }
+
+    else {
+
+        // Fetch crop data from Flask backend
+
+        fetch(
+            "/api/crops?email=" +
+            encodeURIComponent(farmerEmail)
+        )
+
+        .then(response => {
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Failed to load crops"
+                );
+
+            }
+
+            return response.json();
+
+        })
+
+        .then(crops => {
+
+            const cropBox =
+                document.getElementById("myCrop");
+
+
+            // No crops
+
+            if (crops.length === 0) {
+
+                cropBox.innerHTML =
+                    "No crop added yet.";
+
+                return;
+
+            }
+
+
+            // Get latest crop
+
+            const crop =
+                crops[crops.length - 1];
+
+
+            // Display crop
+
+            cropBox.innerHTML = `
+
+                <div class="my-crop-card">
+
+                    <h3>
+                        🌾 ${crop.crop_name}
+                    </h3>
+
+                    <p>
+                        <strong>Crop Type:</strong>
+                        ${crop.crop_type}
+                    </p>
+
+                    <p>
+                        <strong>Land Area:</strong>
+                        ${crop.land_area} Acres
+                    </p>
+
+                    <p>
+                        <strong>Location:</strong>
+                        ${crop.location}
+                    </p>
+
+                    <p>
+                        <strong>Planting Date:</strong>
+                        ${crop.planting_date}
+                    </p>
+
+                </div>
+
+            `;
+
+        })
+
+        .catch(error => {
+
+            console.error(
+                "Crop loading error:",
+                error
+            );
+
+            document.getElementById("myCrop").innerHTML =
+                "Unable to load crop information.";
+
+        });
+
+    }
+
+</script>
+
+
+</body>
+
+</html>

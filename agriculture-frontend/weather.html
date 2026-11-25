@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather - AgriInfo</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f8e9;
+            color: #333;
+        }
+
+        nav {
+            background: #2e7d32;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2e7d32;
+            margin-bottom: 25px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .search-box button {
+            padding: 12px 20px;
+            background: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .search-box button:hover {
+            background: #1b5e20;
+        }
+
+        .weather-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .weather-icon {
+            font-size: 60px;
+            margin: 10px;
+        }
+
+        .temperature {
+            font-size: 48px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .condition {
+            font-size: 22px;
+            margin: 10px 0 25px;
+        }
+
+        .details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .detail-box {
+            background: #f1f8e9;
+            padding: 18px;
+            border-radius: 8px;
+        }
+
+        .detail-box strong {
+            display: block;
+            color: #2e7d32;
+            margin-bottom: 8px;
+        }
+
+        #message {
+            text-align: center;
+            margin: 15px;
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background: #2e7d32;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            .details {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">🌱 AgriInfo</div>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="crops.html">Crops</a>
+        <a href="weather.html">Weather</a>
+        <a href="market.html">Market</a>
+        <a href="login.html">Login</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <h1>🌦️ Real-Time Weather</h1>
+
+    <div class="search-box">
+        <input
+            type="text"
+            id="cityInput"
+            placeholder="Enter city name"
+            value="Dindigul"
+        >
+
+        <button onclick="getWeather()">
+            Check Weather
+        </button>
+    </div>
+
+    <p id="message">Loading weather...</p>
+
+    <div class="weather-card">
+
+        <h2 id="cityName">--</h2>
+
+        <div class="weather-icon" id="weatherIcon">
+            🌤️
+        </div>
+
+        <div class="temperature" id="temperature">
+            -- °C
+        </div>
+
+        <div class="condition" id="condition">
+            --
+        </div>
+
+        <div class="details">
+
+            <div class="detail-box">
+                <strong>💧 Humidity</strong>
+                <span id="humidity">-- %</span>
+            </div>
+
+            <div class="detail-box">
+                <strong>💨 Wind Speed</strong>
+                <span id="wind">-- km/h</span>
+            </div>
+
+            <div class="detail-box">
+                <strong>🌧️ Rain Chance</strong>
+                <span id="rain">-- %</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Agriculture Information System
+</footer>
+
+
+<script>
+
+async function getWeather() {
+
+    const city = document.getElementById("cityInput").value.trim();
+
+    if (!city) {
+        alert("Please enter city name");
+        return;
+    }
+
+    document.getElementById("message").innerText =
+        "Loading weather...";
+
+    try {
+
+        // STEP 1: Find city latitude and longitude
+        const geoResponse = await fetch(
+            "https://geocoding-api.open-meteo.com/v1/search?name="
+            + encodeURIComponent(city)
+            + "&count=1&language=en&format=json"
+        );
+
+        const geoData = await geoResponse.json();
+
+        if (!geoData.results || geoData.results.length === 0) {
+            throw new Error("City not found");
+        }
+
+        const location = geoData.results[0];
+
+        const latitude = location.latitude;
+        const longitude = location.longitude;
+
+        // STEP 2: Get real-time weather
+        const weatherResponse = await fetch(
+            "https://api.open-meteo.com/v1/forecast"
+            + "?latitude=" + latitude
+            + "&longitude=" + longitude
+            + "&current="
+            + "temperature_2m,"
+            + "relative_humidity_2m,"
+            + "apparent_temperature,"
+            + "precipitation,"
+            + "weather_code,"
+            + "wind_speed_10m"
+            + "&hourly=precipitation_probability"
+            + "&timezone=auto"
+        );
+
+        const weatherData = await weatherResponse.json();
+
+        const current = weatherData.current;
+
+        // STEP 3: Display data
+
+        document.getElementById("cityName").innerText =
+            location.name + ", " + location.country;
+
+        document.getElementById("temperature").innerText =
+            Math.round(current.temperature_2m) + " °C";
+
+        document.getElementById("humidity").innerText =
+            current.relative_humidity_2m + " %";
+
+        document.getElementById("wind").innerText =
+            current.wind_speed_10m + " km/h";
+
+        // Current weather condition
+        const weatherInfo =
+            getWeatherDescription(current.weather_code);
+
+        document.getElementById("weatherIcon").innerText =
+            weatherInfo.icon;
+
+        document.getElementById("condition").innerText =
+            weatherInfo.text;
+
+        // Find current hour rain probability
+        const currentHour = new Date(current.time)
+            .getHours();
+
+        const rainProbability =
+            weatherData.hourly.precipitation_probability[
+                currentHour
+            ];
+
+        document.getElementById("rain").innerText =
+            (rainProbability ?? 0) + " %";
+
+        document.getElementById("message").innerText =
+            "Weather updated successfully";
+
+    } catch (error) {
+
+        console.error(error);
+
+        document.getElementById("message").innerText =
+            "Unable to load weather information.";
+
+    }
+}
+
+
+// Weather code → description + icon
+function getWeatherDescription(code) {
+
+    if (code === 0) {
+        return {
+            text: "Clear Sky",
+            icon: "☀️"
+        };
+    }
+
+    if (code === 1 || code === 2) {
+        return {
+            text: "Partly Cloudy",
+            icon: "🌤️"
+        };
+    }
+
+    if (code === 3) {
+        return {
+            text: "Cloudy",
+            icon: "☁️"
+        };
+    }
+
+    if (code >= 45 && code <= 48) {
+        return {
+            text: "Foggy",
+            icon: "🌫️"
+        };
+    }
+
+    if (code >= 51 && code <= 57) {
+        return {
+            text: "Drizzle",
+            icon: "🌦️"
+        };
+    }
+
+    if (code >= 61 && code <= 67) {
+        return {
+            text: "Rain",
+            icon: "🌧️"
+        };
+    }
+
+    if (code >= 71 && code <= 77) {
+        return {
+            text: "Snow",
+            icon: "❄️"
+        };
+    }
+
+    if (code >= 80 && code <= 82) {
+        return {
+            text: "Rain Showers",
+            icon: "🌦️"
+        };
+    }
+
+    if (code >= 95) {
+        return {
+            text: "Thunderstorm",
+            icon: "⛈️"
+        };
+    }
+
+    return {
+        text: "Unknown",
+        icon: "🌤️"
+    };
+}
+
+
+// Load weather automatically
+getWeather();
+
+</script>
+
+</body>
+</html>
+

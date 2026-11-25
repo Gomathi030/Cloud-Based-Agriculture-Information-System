@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Market Prices - AgriInfo</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: #f1f8e9;
+        color: #333;
+    }
+
+    nav {
+        background: #2e7d32;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 16px;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1100px;
+        margin: 40px auto;
+    }
+
+    h1 {
+        text-align: center;
+        color: #2e7d32;
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        text-align: center;
+        color: #666;
+        margin-bottom: 30px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    th {
+        background: #2e7d32;
+        color: white;
+        padding: 15px;
+        text-align: left;
+    }
+
+    td {
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background: #f1f8e9;
+    }
+
+    .price {
+        color: #2e7d32;
+        font-weight: bold;
+    }
+
+    footer {
+        text-align: center;
+        background: #2e7d32;
+        color: white;
+        padding: 15px;
+        margin-top: 50px;
+    }
+
+    @media (max-width: 700px) {
+
+        nav {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        nav a {
+            margin: 5px;
+        }
+
+        table {
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<nav>
+
+    <div class="logo">
+        🌱 AgriInfo
+    </div>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="crops.html">Crops</a>
+        <a href="weather.html">Weather</a>
+        <a href="market.html">Market</a>
+        <a href="add_crop.html">Add Crop</a>
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <h1>🌾 Agricultural Market Prices</h1>
+
+    <p class="subtitle">
+        Crop-wise market prices and locations
+    </p>
+
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>Crop</th>
+                <th>City / Market</th>
+                <th>Price</th>
+                <th>Unit</th>
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            <!-- 1 -->
+            <tr>
+                <td>🌾 Rice</td>
+                <td>Coimbatore</td>
+                <td class="price">₹40</td>
+                <td>Per Kg</td>
+            </tr>
+
+
+            <!-- 2 -->
+            <tr>
+                <td>🌽 Maize</td>
+                <td>Coimbatore</td>
+                <td class="price">₹28</td>
+                <td>Per Kg</td>
+            </tr>
+
+
+            <!-- 3 -->
+            <tr>
+                <td>🥜 Groundnut</td>
+                <td>Dindigul</td>
+                <td class="price">₹68</td>
+                <td>Per Kg</td>
+            </tr>
+
+
+            <!-- 4 -->
+            <tr>
+                <td>🍅 Tomato</td>
+                <td>Dindigul</td>
+                <td class="price">₹29</td>
+                <td>Per Kg</td>
+            </tr>
+
+
+            <!-- 5 -->
+            <tr>
+                <td>🌶️ Chilli</td>
+                <td>Coimbatore</td>
+                <td class="price">₹120</td>
+                <td>Per Kg</td>
+            </tr>
+
+
+            <!-- 6 -->
+            <tr>
+                <td>🧅 Onion</td>
+                <td>Coimbatore</td>
+                <td class="price">₹32</td>
+                <td>Per Kg</td>
+            </tr>
+
+
+            <!-- 7 -->
+            <tr>
+                <td>🌱 Green Gram</td>
+                <td>Thanjavur</td>
+                <td class="price">₹95</td>
+                <td>Per Kg</td>
+            </tr>
+
+
+            <!-- 8 -->
+            <tr>
+                <td>🌱 Black Gram</td>
+                <td>Dindigul</td>
+                <td class="price">₹95</td>
+                <td>Per Kg</td>
+            </tr>
+
+
+            <!-- 9 -->
+            <tr>
+                <td>🌾 Wheat</td>
+                <td>Coimbatore</td>
+                <td class="price">₹32</td>
+                <td>Per Kg</td>
+            </tr>
+
+
+            <!-- 10 -->
+            <tr>
+                <td>🍌 Banana</td>
+                <td>Dindigul</td>
+                <td class="price">₹61</td>
+                <td>Per Kg</td>
+            </tr>
+
+
+            <!-- 11 -->
+            <tr>
+                <td>🥔 Potato</td>
+                <td>Dindigul</td>
+                <td class="price">₹35</td>
+                <td>Per Kg</td>
+            </tr>
+
+
+            <!-- 12 -->
+            <tr>
+                <td>🎋 Sugarcane</td>
+                <td>Coimbatore</td>
+                <td class="price">₹4</td>
+                <td>Per Kg</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+<footer>
+    © 2026 Agriculture Information System
+</footer>
+
+</body>
+
+</html>
