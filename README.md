@@ -32,3 +32,119 @@ Our Cloud-Based Agriculture Information System addresses these challenges using 
 Cloud-Based Agriculture Information System follows a three-tier AWS architecture consisting of the Presentation Layer, Application Layer, and Database Layer.
 
 ![AWS Architecture Diagram](./images/agri%20architecture.jpeg)
+
+1. Presentation Layer – Frontend
+
+AWS Services:
+
+Amazon S3
+
+Amazon CloudFront
+
+Technologies:
+
+HTML
+
+CSS
+
+JavaScript
+
+Responsibilities:
+
+Amazon S3 stores the static frontend files.
+
+Amazon CloudFront delivers frontend content securely using HTTPS.
+
+Farmers access the application through the CloudFront URL.
+
+No custom domain name is required.
+
+2. Application Layer – Backend
+
+AWS Services:
+
+Amazon VPC
+
+Application Load Balancer (ALB)
+
+Amazon EC2
+
+Auto Scaling Group
+
+Bastion Host
+
+Technologies:
+
+Python
+
+Flask
+
+Responsibilities:
+
+The Application Load Balancer distributes incoming API requests.
+
+Backend EC2 instances run the Flask application inside private subnets.
+
+Auto Scaling automatically adjusts the number of EC2 instances based on application demand.
+
+The Bastion Host provides secure SSH access to private EC2 instances.
+
+The backend handles application logic such as registration, login, and crop-related operations.
+
+3. Database Layer – Data Storage
+
+AWS Service:
+
+Amazon RDS (MySQL)
+
+Responsibilities:
+
+Stores farmer information.
+
+Stores crop-related information.
+
+Stores market-related data.
+
+Database access is restricted to the backend application in the private subnet.
+
+ AWS Services Used
+
+AWS Service
+
+Purpose
+
+Amazon CloudFront
+
+Secure frontend content delivery
+
+Amazon S3
+
+Static frontend hosting
+
+Application Load Balancer
+
+Distributes API requests
+
+Amazon EC2
+
+Runs the Flask backend
+
+Auto Scaling Group
+
+Automatically scales backend EC2 instances
+
+Amazon RDS (MySQL)
+
+Managed relational database
+
+Bastion Host
+
+Secure SSH access to private resources
+
+Amazon CloudWatch
+
+Monitors application health and logs
+
+Amazon VPC
+
+Provides isolated cloud networking
