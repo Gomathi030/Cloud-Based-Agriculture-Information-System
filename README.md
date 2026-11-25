@@ -31,6 +31,4 @@ Our Cloud-Based Agriculture Information System addresses these challenges using 
 
 Cloud-Based Agriculture Information System follows a three-tier AWS architecture consisting of the Presentation Layer, Application Layer, and Database Layer.
 
-Cloud-Based Agriculture Information System follows a three-tier AWS architecture consisting of the Presentation Layer, Application Layer, and Database Layer.
-
 ![AWS Architecture Diagram](./images/agri%20architecture.jpeg)
