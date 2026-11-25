@@ -33,38 +33,4 @@ Cloud-Based Agriculture Information System follows a three-tier AWS architecture
 
 Cloud-Based Agriculture Information System follows a three-tier AWS architecture consisting of the Presentation Layer, Application Layer, and Database Layer.
 
-mermaid
-flowchart TB
-    Farmer["Farmers"]
-
-    subgraph AWS["AWS Cloud - ap-south-1"]
-        subgraph VPC["VPC - 10.0.0.0/16"]
-
-            subgraph P["Presentation Layer"]
-                CF["Amazon CloudFront"]
-                S3["Amazon S3 - Frontend"]
-                CF --> S3
-            end
-
-            subgraph A["Application Layer"]
-                ALB["Application Load Balancer"]
-                subgraph Private["Private Subnet"]
-                    EC2["Backend EC2 - Flask"]
-                    ASG["Auto Scaling Group"]
-                end
-                Bastion["Bastion Host"]
-                ALB --> EC2
-                ASG -. Manages .-> EC2
-                Bastion -. SSH Access .-> EC2
-            end
-
-            subgraph D["Database Layer - Private Subnet"]
-                RDS[("Amazon RDS - MySQL")]
-            end
-
-            S3 -->|"API Requests"| ALB
-            EC2 --> RDS
-        end
-    end
-
-    Farmer --> CF
+![AWS Architecture Diagram](./images/agri%20architecture.jpeg)
