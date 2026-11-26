@@ -11,17 +11,17 @@ Farmers face several challenges in accessing important agricultural information 
 
 Major Problems
 
-Lack of Centralized Information: Farmers need to depend on multiple sources to obtain agricultural information.
+ - Lack of Centralized Information: Farmers need to depend on multiple sources to obtain agricultural information.
 
-Difficulty in Accessing Crop Details: Finding useful information about different crops and their cultivation can be challenging.
+ - Difficulty in Accessing Crop Details: Finding useful information about different crops and their cultivation can be challenging.
 
-Weather Information Challenges: Farmers need timely weather information to plan their agricultural activities.
+ - Weather Information Challenges: Farmers need timely weather information to plan their agricultural activities.
 
-Lack of Market Price Awareness: Farmers may find it difficult to access updated agricultural market prices.
+ - Lack of Market Price Awareness: Farmers may find it difficult to access updated agricultural market prices.
 
-Time-Consuming Information Collection: Collecting information from different platforms requires additional time and effort.
+ - Time-Consuming Information Collection: Collecting information from different platforms requires additional time and effort.
 
-Limited Accessibility: Farmers need a simple and user-friendly platform to access agricultural information.
+ - Limited Accessibility: Farmers need a simple and user-friendly platform to access agricultural information.
 
 # 3.Proposed System 
 
@@ -39,15 +39,15 @@ AWS Services:
 
 #### Amazon S3
 
- Amazon S3 stores the static frontend files.
+ - Amazon S3 stores the static frontend files.
 
 #### Amazon CloudFront
 
- Amazon CloudFront delivers frontend content securely using HTTPS.
+ - Amazon CloudFront delivers frontend content securely using HTTPS.
 
- Farmers access the application through the CloudFront URL.
+ - Farmers access the application through the CloudFront URL.
 
- No custom domain name is required.
+ - No custom domain name is required.
 
 #### Technologies:
 
@@ -93,13 +93,13 @@ AWS Service:
 
 #### Amazon RDS (MySQL)
 
- Stores farmer information.
+ - Stores farmer information.
 
- Stores crop-related information.
+ - Stores crop-related information.
 
- Stores market-related data.
+ - Stores market-related data.
 
- Database access is restricted to the backend application in the private subnet.
+ - Database access is restricted to the backend application in the private subnet.
 
 # AWS Services Used 
 
@@ -137,6 +137,7 @@ AWS Service:
  - Tested connectivity between the Bastion Host and private EC2 instances.
 
 #### Resolution
+
  - Corrected route table configurations and subnet associations.
 
  - Configured the Internet Gateway for public subnet connectivity.
@@ -159,7 +160,7 @@ AWS Service:
 
  A Bastion Host acts as a secure entry point for accessing and managing EC2 instances deployed inside private subnets.
 
-## 2.EC2 Connectivity Issues: 
+## 2.EC2 Connectivity Issues 
 
 #### Problem
 
@@ -179,7 +180,7 @@ AWS Service:
 
  - The private EC2 instance was accessed through the Bastion Host using its private IP address over SSH.
 
-#### Key Finding:
+#### Key Finding
 
  A Bastion Host provides a secure entry point for accessing private EC2 instances without exposing them directly to the internet
 
@@ -213,7 +214,7 @@ AWS Service:
 
  - Rechecked the Target Group and confirmed that the backend EC2 instance became healthy.
 
-#### Workflow:
+#### Workflow
 
  Local Machine / Farmer | Amazon CloudFront | Application Load Balancer | Target Group | Private EC2 Instance (Flask Backend)
 
@@ -221,17 +222,18 @@ AWS Service:
 
  - The Flask backend processes the requests and returns responses to the users.
 
-Key Finding
+#### Key Finding
 
  An Application Load Balancer distributes incoming requests to healthy backend instances and improves application availability.
 
- ## 4.Backend Deployment :
+## 4.Backend Deployment 
 
- #### Problem
+#### Problem
 
-  Experienced difficulties deploying and running the Flask application on the EC2 instance.
+ Experienced difficulties deploying and running the Flask application on the EC2 instance.
 
 #### Troubleshooting
+
  - Checked the Flask application files and dependencies.
 
  - Verified Python and Flask installation on EC2.
@@ -254,7 +256,7 @@ Key Finding
 
  - Verified backend connectivity through the Application Load Balancer.
 
- #### Key Findings:
+ #### Key Findings
 
  - Understood how to deploy Flask applications on EC2.
 
@@ -264,7 +266,7 @@ Key Finding
 
  - Gained practical experience in troubleshooting deployment issues.
 
-## 5.CloudFront Integration Issues:
+## 5.CloudFront Integration Issue
 
 #### Problem
 
@@ -344,12 +346,12 @@ Key Finding
 
  - Help farmers compare prices and choose the best market to sell their crops.
 
-#### Mobile Application
+#### 4.Mobile Application
 
  - Develop an Android application to provide easy access to agricultural information.
 
  - Enable farmers to view crop details, weather forecasts, and market prices through mobile devices.
- 
+
  - Provide a user-friendly interface to help farmers access information anytime and anywhere.
 
 
