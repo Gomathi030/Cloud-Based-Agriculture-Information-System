@@ -159,7 +159,7 @@ AWS Service:
 
  A Bastion Host acts as a secure entry point for accessing and managing EC2 instances deployed inside private subnets.
 
-## EC2 Connectivity Issues: 
+## 2.EC2 Connectivity Issues: 
 
 #### Problem
 
@@ -183,7 +183,7 @@ AWS Service:
 
  A Bastion Host provides a secure entry point for accessing private EC2 instances without exposing them directly to the internet
 
-## Load Balancer Configuration Issues
+## 3.Load Balancer Configuration Issues
 
 #### Problem
 
@@ -225,7 +225,46 @@ Key Finding
 
  An Application Load Balancer distributes incoming requests to healthy backend instances and improves application availability.
 
-## CloudFront Integration Issues:
+ ## 4.Backend Deployment :
+
+ #### Problem
+
+  Experienced difficulties deploying and running the Flask application on the EC2 instance.
+
+#### Troubleshooting
+ - Checked the Flask application files and dependencies.
+
+ - Verified Python and Flask installation on EC2.
+
+ - Checked whether the application was running on the correct port (5000).
+
+ - Tested backend connectivity using local curl commands.
+
+ - Verified EC2 security group inbound rules.
+
+#### Resolution
+
+ - Installed the required Python dependencies using requirements.txt.
+
+ - Corrected Flask application configuration.
+
+ - Configured Flask to listen on 0.0.0.0:5000.
+
+ - Started the Flask backend application on EC2.
+
+ - Verified backend connectivity through the Application Load Balancer.
+
+ ## Key Findings:
+
+ - Understood how to deploy Flask applications on EC2.
+
+ - Learned the importance of port configuration and security groups.
+
+ - Understood backend connectivity with an Application Load Balancer.
+
+ - Gained practical experience in troubleshooting deployment issues.
+
+## 5.CloudFront Integration Issues:
 
 #### Problem
 
@@ -263,5 +302,7 @@ Key Finding
 
  - Amazon CloudFront securely delivers frontend content, while the Application Load Balancer routes API requests to the backend application.
 
-## Backend Deployment :
+ 
+
+
 
