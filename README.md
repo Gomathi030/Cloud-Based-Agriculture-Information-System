@@ -254,7 +254,7 @@ Key Finding
 
  - Verified backend connectivity through the Application Load Balancer.
 
- ## Key Findings:
+ #### Key Findings:
 
  - Understood how to deploy Flask applications on EC2.
 
@@ -318,7 +318,39 @@ Key Finding
 
 ![Console-output](images/console-db-output.jpeg)
 
+# Future Improvements
 
+#### 1.AI-Based Crop Recommendation
+
+ - Implement AI/ML algorithms to analyze soil type, weather conditions, and location.
+
+ - Recommend suitable crops based on soil fertility and environmental conditions.
+
+ - Help farmers improve crop productivity and make better agricultural decisions.
+
+#### 2.Real-Time Weather Updates
+
+ - Integrate weather APIs to fetch real-time weather information.
+
+ - Provide temperature, rainfall, humidity, and weather forecasts based on farmers' locations.
+
+ - Send weather alerts to farmers to help them plan agricultural activities.
+
+#### 3.Real-Time Market Price Updates
+
+ - Integrate agricultural market APIs to fetch updated crop prices.
+
+ - Display daily market rates based on crop type and market location.
+
+ - Help farmers compare prices and choose the best market to sell their crops.
+
+#### Mobile Application
+
+ - Develop an Android application to provide easy access to agricultural information.
+
+ - Enable farmers to view crop details, weather forecasts, and market prices through mobile devices.
+ 
+ - Provide a user-friendly interface to help farmers access information anytime and anywhere.
 
 
 
