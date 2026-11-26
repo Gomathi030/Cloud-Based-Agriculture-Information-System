@@ -302,11 +302,13 @@ Key Finding
 
  - Amazon CloudFront securely delivers frontend content, while the Application Load Balancer routes API requests to the backend application.
 
-![home-page](images/home-page.jpeg)
+![Register Page](images/Register-page.jpeg)
 
 ![Login Page](images/Login-page.jpeg)
 
-![Register Page](images/Register-page.jpeg)
+![home-page](images/home-page.jpeg)
+
+![Crops Page](images/crops.jpeg)
 
 
 
