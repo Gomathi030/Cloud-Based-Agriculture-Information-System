@@ -304,7 +304,9 @@ Key Finding
 
 ![home-page](images/home-page.jpeg)
 
-! [Login-page](images/Login-page.jpeg)
+![Login Page](images/Login-page.jpeg)
+
+![Register Page](images/Register-page.jpeg)
 
 
 
