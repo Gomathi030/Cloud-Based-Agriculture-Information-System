@@ -306,10 +306,17 @@ Key Finding
 
 ![Login Page](images/Login-page.jpeg)
 
-![home-page](images/home-page.jpeg)
+![Dashboarde-page](images/Dashboard.jpeg)
 
 ![Crops Page](images/crops.jpeg)
 
+![Weather Page](images/weather.jpeg)
+
+![Market-Price](images/market-price.jpeg)
+
+![Admin-Page](images/admin.jpeg)
+
+![Console-output](images/console-db-output.jpeg)
 
 
 
